@@ -1,5 +1,5 @@
 body {
-  background-color: #272A2C;
+  background-color: #232627;
 
   .main {
     padding: 20vh 1rem 1rem 1rem;
@@ -7,22 +7,71 @@ body {
     max-width: 768px;
     margin-left: auto;
     margin-right: auto;
+    text-align: center;
+
+    a {
+      color: unset;
+    }
 
     .intro {
-      p {
-        margin: 0;
-        color: #4CE44F;
-        font-family: "Courier", monospace;
-        font-size: 3rem;
+      margin: 0 0 4rem 0;
+      color: #11D116;
+      font-family: 'Roboto Mono', monospace;
+      font-size: 3rem;
 
-        .character {
-          display: none;
-        }
+      .character {
+        display: none;
+      }
 
-        .cursor {
-          transition: opacity .15s;
+      .cursor {
+        transition: opacity .15s;
+      }
+    }
+
+    .opacity-animation {
+      opacity: 0;
+      transition: opacity .5s;
+    }
+
+    .secondary-text {
+      color: #b3b4b4;
+      font-family: 'Open Sans', sans-serif;
+    }
+
+    .currently-at {
+      font-size: 1.33rem;
+      margin: 0 0 3rem 0;
+    }
+
+    .contacts {
+      font-size: 1rem;
+
+      .contact-logos {
+        list-style: none;
+
+        li {
+          display: inline;
+
+          &:not(:first-child) {
+            margin-left: 0.5rem;
+          }
+
+          a.contact-logo {
+            text-decoration: none;
+          }
         }
       }
     }
+  }
+
+  .sr-only {
+    position: absolute;
+    width: 1px;
+    height: 1px;
+    padding: 0;
+    overflow: hidden;
+    clip: rect(0, 0, 0, 0);
+    word-wrap: normal;
+    border: 0;
   }
 }

@@ -2,12 +2,35 @@ function chars(input: string) {
   return input.split("");
 }
 
-
 function sleep(ms: number) {
   return new Promise(resolve => setTimeout(resolve, ms));
 }
 
-function setupWriting() {
+/**
+ * After the into has been 'written', all the other sections are made visible in order by
+ * turning the opacity to 1 and playing with different delay times.
+ */
+function onWriteFinished() {
+  setTimeout(() => {
+    document.querySelector<HTMLElement>(".currently-at").style.opacity = "1";
+
+  }, 1500);
+
+  const contactsDelay = 5000;
+  setTimeout(() => {
+    document.querySelector<HTMLElement>(".contacts").style.opacity = "1";
+
+  }, contactsDelay);
+
+  // set timeouts for all contact logos
+  document.querySelectorAll<HTMLElement>(".contact-logo").forEach((e, i) => {
+    setTimeout(() => {
+      e.style.opacity = "1";
+    }, contactsDelay + 250 + (i * 250));
+  });
+}
+
+function introWriting() {
   const characters = document.querySelectorAll<HTMLSpanElement>(".intro .character");
 
   const interval = 120;
@@ -18,6 +41,7 @@ function setupWriting() {
     // if we're at the end of the text, stop writing
     if (i >= characters.length) {
       clearInterval(intervalId);
+      onWriteFinished();
       return;
     }
 
@@ -29,23 +53,6 @@ function setupWriting() {
   }, interval);
 }
 
-function getCursor() {
-  return "<span class=\"cursor\">|</span>";
-}
-
-function addIntro() {
-  const characters = [
-    ...chars("Hi! I'm Luca Dalla Valle."),
-    ...["<br/>"],
-    ...chars("I'm a software engineer based in Italy.")
-  ];
-  let html = characters.map(c => `<span class="character">${c}</span>`).join("");
-  html += getCursor();
-
-  const intro = document.querySelector(".intro p");
-  intro.innerHTML = html;
-}
-
 function setCursorAnimation() {
   const cursor = document.querySelector<HTMLSpanElement>(".cursor");
   setInterval(() => {
@@ -54,9 +61,8 @@ function setCursorAnimation() {
 }
 
 function main() {
-  addIntro();
   setCursorAnimation();
-  setupWriting();
+  introWriting();
 }
 
 document.addEventListener("DOMContentLoaded", () => {

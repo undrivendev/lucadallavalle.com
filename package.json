@@ -1,7 +1,7 @@
 {
-  "name": "vanilla-website",
+  "name": "ldv-personalsite",
   "version": "1.0.0",
-  "description": "Change me",
+  "description": "lucadallavalle.com personal website.",
   "scripts": {
     "start": "parcel src/index.html",
     "build": "parcel build src/index.html"

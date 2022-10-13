@@ -4,7 +4,7 @@
   "description": "lucadallavalle.com personal website.",
   "scripts": {
     "start": "parcel src/index.html",
-    "build": "parcel build src/index.html"
+    "build": "rm ./dist/* && parcel build -d ./dist src/index.html && cp ./assets/* ./dist/"
   },
   "author": "luca.dallavalle@outlook.com",
   "license": "SEE LICENSE IN LICENSE.md",

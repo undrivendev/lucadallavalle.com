@@ -1,10 +1,20 @@
+$breakpoint-lg: 768px;
+
 body {
   background-color: #232627;
   margin: 0;
   height: 100vh;
 
   .main {
-    padding: 20vh 0 0 0;
+    padding: 2rem 0 0;
+    @media (min-width: $breakpoint-lg) {
+      padding-top: 20vh;
+    }
+
+    @media (min-width: 576px) {
+      padding: 20vh 0 0 0;
+    }
+
     width: 100%;
     max-width: 768px;
     margin-left: auto;

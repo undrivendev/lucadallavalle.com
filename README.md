@@ -1,6 +1,7 @@
 # lucadallavalle.com Website
 This is my (simple) personal website hosted at https://www.lucadallavalle.com .
 
+![Home page screenshot](docs/screenshot.jpg)
 
 ## Features
 This is based on my [vanilla website template](https://github.com/undrivendev/template-vanilla-website).
